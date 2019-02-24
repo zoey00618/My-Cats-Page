@@ -1,0 +1,73 @@
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+function  goPrev()
+{
+  var cs = parseInt($("#wrapper").css("margin-left"))/window.innerWidth;
+  if(cs == -3){
+    $("#wrapper").css("margin-left", "-200vw");
+  }
+  else if(cs == -2){
+    $("#wrapper").css("margin-left", "-100vw");
+  }
+  else if(cs == -1){
+    $("#wrapper").css("margin-left", "0vw");
+  }
+}
+
+function goNext()
+{
+
+  var cs = parseInt($("#wrapper").css("margin-left"))/window.innerWidth;
+  if(cs == 0){
+    $("#wrapper").css("margin-left", "-100vw");
+  }
+  else if(cs == -2){
+    $("#wrapper").css("margin-left", "-300vw");
+  }
+  else if(cs == -1){
+    $("#wrapper").css("margin-left", "-200vw");
+  }
+
+}
+
+</script>
+<style>
+  body{
+    margin: 0px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  #wrapper{
+    width: 405vw;
+    height: 100%;
+  }
+  #wrapper img{
+    width: 100vw;
+    vertical-align: top;
+  }
+  button{
+    position: absolute;
+    bottom: 5px;
+  }
+
+</style>
+</head>
+
+<body>
+  <div id='wrapper'>
+    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Grande_Roue_de_Montr%C3%A9al_at_night_6.jpg/270px-Grande_Roue_de_Montr%C3%A9al_at_night_6.jpg'>
+    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Koi_feeding%2C_National_Arboretum.jpg/677px-Koi_feeding%2C_National_Arboretum.jpg'>
+    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Spotted_Trunkfish.jpg/471px-Spotted_Trunkfish.jpg'>
+    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Flughahn.jpg/675px-Flughahn.jpg'>
+    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Macropodus_opercularis_-_side_%28aka%29_edit.jpg/999px-Macropodus_opercularis_-_side_%28aka%29_edit.jpg'>
+  </div>
+  <button onclick='goPrev()'> Prev </button>
+  <button onclick='goNext()' style='right:0'> Next </button>
+
+</body>
+</html>

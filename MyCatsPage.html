@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<title>Yichen's pets</title>
+<style>
+.wordsimage{
+  border-radius: 75%;
+  border: 1px solid #ddd;
+  padding: 5px;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  visibility: hidden;
+  background-color: rgba(217, 217, 216, 0.2);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.chineseWords{
+  position: relative;
+  width: 50%;
+}
+.overlay {
+  position: absolute;
+  border-radius: 75%;
+  border: 1px;
+  padding: 5px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: grey;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.text{
+  color: white;
+  font-size: 1.5vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-family: "Lucida Console";
+  text-align: center;
+}
+.chineseWords:hover .overlay {
+  opacity: 0.5;
+}
+div.catCY img {
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius:100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+div.catCY img:hover {opacity: 0.5;}
+
+@media only screen and (max-width: 700px) {
+  .catCY {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .catCY {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h1 {
+  font-family: "Verdana";
+  font-style: italic;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 4.5vw;
+  text-align: center;
+}
+h4{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5vw;
+  font-family: "Verdana";
+  text-align: center;
+}
+b {
+  font-weight: bold;
+}
+</style>
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+crossorigin="anonymous">
+
+<h1><b>Chongyang</b> and Changan</h1>
+<h4> These are what <b>Chongyang</b> and <b>Changan</b> written in Chinese.<h4>
+</head>
+
+<body>
+<div class="chineseWords">
+  <img class= 'wordsimage'>
+  <div class="overlay">
+    <div class="text"></div>
+  </div>
+</div>
+
+<button onclick="CY()"> Chongyang </button>
+<button onclick ="CA()"> Chongan </button>
+
+<script>
+function CY(){
+  var x = document.getElementsByClassName("wordsimage");
+  x[0].src = "http://www.51pptmoban.com/d/file/2018/10/10/68523e8374161fe4ac5f635fddd756dd.png";
+  x[0].style.visibility = "visible"
+  var y = document.getElementsByClassName("text");
+  y[0].innerHTML = "Chongyang";
+}
+function CA(){
+  var z = document.getElementsByClassName("wordsimage");
+  z[0].src = "http://img1.imgtn.bdimg.com/it/u=2575565392,516972519&fm=26&gp=0.jpg";
+  z[0].style.visibility = "visible"
+  var b = document.getElementsByClassName("text");
+  b[0].innerHTML = "Changan";
+}
+
+</script>
+
+
+
+<p> Here are pictures of them</p>
+<div class="catCY">
+  <a target="_blank" href="IMG_0609.jpg">
+    <img src="IMG_0609.jpg" alt="Chongyang" width="50%" height="auto">
+  </a>
+</div>
+
+<div class="catCY">
+  <a target="_blank" href="IMG_2707.jpg">
+    <img alt="Changan" src="IMG_2707.jpg" width="50%" height="auto">
+  </a>
+</div>
+
+<div class="clearfix"></div>
+
+</body>
+</html>

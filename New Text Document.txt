@@ -1,0 +1,13 @@
+Document Object Model:
+every object is decendent of window.
+#window.documentS
+1.getElementById()
+values
+objection
+expression
+keywords
+comments: sth for us to read, comments will never executed as statement; using // to start a comment
+/* starts 
+*/
+https://www.w3schools.com/css/tryit.asp?filename=trycss_image_modal_js
+style image w3schools
