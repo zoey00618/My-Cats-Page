@@ -1,0 +1,140 @@
+<html>
+<head>
+
+<script>
+var cs = 0;
+function  goPrev()
+{
+  if(cs > 0){
+    cs--;
+    goToCurrSlide();
+  }
+  else if (cs==0) {
+    document.getElementById("pre").style = '-webkit-animation-name: rubberBand;animation-name: rubberBand; animation-duration: 0.5s';
+  }
+}
+
+function goNext()
+{
+  if(cs < allImages.length -1){
+    cs++;
+    goToCurrSlide();
+  }
+  else if (cs == allImages.length-1) {
+    document.getElementById("nx").style = '-webkit-animation-name: rubberBand;animation-name: rubberBand; animation-duration: 0.5s; right:0';
+  }
+}
+
+function slideClicked(index){
+  cs = index;
+  goToCurrSlide();
+}
+
+function goToCurrSlide(){
+  document.getElementById("wrapper").style.marginLeft = cs * -100 + "vw";
+  var bE = document.getElementById("numWrapper").getElementsByTagName("button");
+  for(var i = 0; i < bE.length; i++){
+    if(i == cs){
+      bE[i].style.background = "gold";
+    }
+    else{
+      bE[i].style.background = "";
+    }
+  }
+
+}
+var allImages ;
+
+function main()
+{
+  allImages = window.location.hash.replace("#","").split(",");
+  var markup = "";
+  for(var i = 0; i < allImages.length; i++){
+    var url = allImages[i];
+    markup += "<img src='" + url + "'>";
+  }
+  document.getElementById("wrapper").innerHTML = markup;
+
+  var nmarkup = "";
+  for(var i = 0; i < allImages.length; i++){
+    nmarkup += "<button onclick='slideClicked(" + i + ")'>" + (i+1) + "</button>";
+  }
+
+  document.getElementById("numWrapper").innerHTML = nmarkup;
+  goToCurrSlide();
+}
+
+</script>
+<style>
+  body{
+    margin: 0px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  #wrapper{
+    width: 505vw;
+    height: 100%;
+    transition: margin-left 1s;
+  }
+  #wrapper img{
+    width: 100vw;
+    vertical-align: top;
+  }
+  .navbutton{
+    position: absolute;
+    bottom: 5px;
+  }
+  #numWrapper{
+    width: 70%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 15%;
+    text-align:center;
+  }
+  @keyframes rubberBand {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+      transform: scale3d(.95, 1.05, 1);
+    }
+
+    75% {
+      transform: scale3d(1.05, .95, 1);
+    }
+
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  .rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand;
+  }
+
+</style>
+</head>
+
+<body onload='main()'>
+  <div id='wrapper'>  </div>
+  <button class='navbutton' id = "pre" onclick='goPrev()'> Prev </button>
+  <button class='navbutton' id = "nx" onclick='goNext()' style='right:0'> Next </button>
+  <div id='numWrapper'>  </div>
+
+</body>
+</html>
